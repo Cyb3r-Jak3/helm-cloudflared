@@ -1,0 +1,8 @@
+Thank you for installing {{ include "..fullname" . }}.
+To verify that the the tunnel is running, you should check on the cloudflared dashboard with https://one.dash.cloudflare.com/?to=/:account/networks/tunnels?search=
+
+You can also check the metrics with the following command:
+kubectl --namespace {{ .Release.Namespace }} port-forward deployment/{{ include "..fullname" . }} {{ .Values.metrics.port}}:8080
+then open http://localhost:8080/metrics
+
+**Please note that this chart is just for the configuration of the tunnel, and Cloudflared tunnels software is not included in this chart.**
