@@ -44,9 +44,7 @@ jobs:
   
       - name: Push charts to GHCR
         run: |
-          IFS=',' read -ra my_array <<< "${{ steps.parse-chart.outputs.changed_charts }}"
-          for chart in "${my_array[@]}";
-          do
-            echo "Pushing $chart"
-            helm push "${{ github.workspace }}/.cr-release-packages/$chart.tgz" "oci://ghcr.io/${GITHUB_REPOSITORY_OWNER}/helm-charts"
+          for char in $(find .cr-release-packages -name '*.tgz'); do
+            echo "Pushing $char"
+            helm push $char oci://ghcr.io/${GITHUB_REPOSITORY_OWNER}/helm-charts
           done
