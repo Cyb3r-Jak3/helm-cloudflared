@@ -39,7 +39,7 @@ jobs:
         uses: docker/login-action@v3.0.0
         with:
           registry: ghcr.io
-          username: ${{ github.actor }}
+          username: cyb3r-jak3
           password: ${{ secrets.GITHUB_TOKEN }}
   
       - name: Push charts to GHCR
