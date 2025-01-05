@@ -45,6 +45,5 @@ jobs:
       - name: Push charts to GHCR
         run: |
           for char in $(find .cr-release-packages -name '*.tgz'); do
-            echo "Pushing $char"
-            helm push $char oci://ghcr.io/${GITHUB_REPOSITORY_OWNER}/helm-charts
+            helm push $char oci://ghcr.io/cyb3r-jak3/helm-charts
           done
