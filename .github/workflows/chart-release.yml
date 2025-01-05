@@ -31,5 +31,22 @@ jobs:
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.6.0
+        id: parse-chart
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      
+      - name: Login to GHCR
+        uses: docker/login-action@v3.0.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+  
+      - name: Push charts to GHCR
+        run: |
+          IFS=',' read -ra my_array <<< "${{ steps.parse-chart.outputs.changed_charts }}"
+          for chart in "${my_array[@]}";
+          do
+            echo "Pushing $chart"
+            helm push "${{ github.workspace }}/.cr-release-packages/$chart.tgz" "oci://ghcr.io/${GITHUB_REPOSITORY_OWNER}/helm-charts"
+          done
