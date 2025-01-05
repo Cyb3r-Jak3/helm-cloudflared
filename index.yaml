@@ -3,6 +3,17 @@ entries:
   cloudflared:
   - apiVersion: v2
     appVersion: 2024.12.2
+    created: "2025-01-05T00:39:35.915151353Z"
+    description: Cyb3r-Jak3's Cloudflared Helm chart
+    digest: 891a6442d9f78ccd7a10eb22197a4a69bcd2861ef787a7295f1dfc4684490314
+    icon: https://public-files.cyberjake.xyz/cloudflare-zero-trust.svg
+    name: cloudflared
+    type: application
+    urls:
+    - https://github.com/Cyb3r-Jak3/helm-cloudflared/releases/download/cloudflared-0.1.4/cloudflared-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 2024.12.2
     created: "2025-01-05T00:38:29.103944577Z"
     description: Cyb3r-Jak3's Cloudflared Helm chart
     digest: d81677330de92f3206c81a6d4e9c3e5f6f72dc78d3c82db24c8af05ad219e73e
@@ -34,4 +45,4 @@ entries:
     urls:
     - https://github.com/Cyb3r-Jak3/helm-cloudflared/releases/download/cloudflared-0.1.1/cloudflared-0.1.1.tgz
     version: 0.1.1
-generated: "2025-01-05T00:38:29.10395661Z"
+generated: "2025-01-05T00:39:35.915172883Z"
