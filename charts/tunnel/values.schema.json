@@ -209,6 +209,5 @@
             "type": "array"
         }
     },
-    "title": "Cloudflared",
     "type": "object"
 }
