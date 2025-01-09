@@ -1,6 +1,6 @@
 # Cloudflared Helm Chart
 
-[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/cloudflared)](https://artifacthub.io/packages/search?repo=cloudflared)
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/cyberjake)](https://artifacthub.io/packages/search?repo=cyberjake)
 
 My Helm chart for Cloudflared.
 Inspired from [Cloudflare's Helm Chart](https://github.com/cloudflare/helm-charts) but with a few modifications such as:
