@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -32,7 +32,8 @@ jobs:
 
       - name: Run chart-releaser
         uses: helm/chart-releaser-action@v1.6.0
-        id: parse-chart
+        with:
+          skip_existing: true
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
@@ -49,7 +50,7 @@ jobs:
           script: |
             const coredemo = require('@actions/core')
             let id_token = await coredemo.getIDToken()
-            const response = await fetch('https://github-oidc-worker.jwhite.network/api/v1/workflow', {
+            const response = await fetch('https://github-oidc-worker.cyberjake.xyz/api/v1/workflow', {
               method: 'POST',
               headers: {
                 Authorization: `${id_token}`,
