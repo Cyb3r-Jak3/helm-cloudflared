@@ -36,6 +36,13 @@ jobs:
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+      
+      - name: Install OIDC Client from Core Package
+        run: npm install @actions/core@1.11.1
+
       - name: Trigger Helm Chart Sync
         uses: actions/github-script@v7
         with:
@@ -45,7 +52,8 @@ jobs:
             const response = await fetch('https://github-oidc-worker.jwhite.network/api/v1/workflow', {
               method: 'POST',
               headers: {
-                Authorization: `${id_token}`
+                Authorization: `${id_token}`,
+                "User-Agent": "Cyb3r-Jak3/helm-cloudflared",
               },
               body: JSON.stringify({
                 targetRepo: 'Cyb3r-Jak3/helm-repo',
