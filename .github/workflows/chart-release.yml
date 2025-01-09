@@ -12,6 +12,7 @@ jobs:
     permissions:
       contents: write
       packages: write
+      id-token: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -34,16 +35,23 @@ jobs:
         id: parse-chart
         env:
           CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-      
-      - name: Login to GHCR
-        uses: docker/login-action@v3.0.0
+
+      - name: Trigger Helm Chart Sync
+        uses: actions/github-script@v7
         with:
-          registry: ghcr.io
-          username: cyb3r-jak3
-          password: ${{ secrets.HELM_RELEASE_TOKEN }}
-  
-      - name: Push charts to GHCR
-        run: |
-          for char in $(find .cr-release-packages -name '*.tgz'); do
-            helm push $char oci://ghcr.io/cyb3r-jak3/helm-charts
-          done
+          script: |
+            const coredemo = require('@actions/core')
+            let id_token = await coredemo.getIDToken()
+            const response = await fetch('https://github-oidc-worker.jwhite.network/api/v1/workflow', {
+              method: 'POST',
+              headers: {
+                Authorization: `${id_token}`
+              },
+              body: JSON.stringify({
+                targetRepo: 'Cyb3r-Jak3/helm-repo',
+                targetWorkflow: 'get-charts.yml'
+              })
+            })
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
