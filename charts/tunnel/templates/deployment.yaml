@@ -38,7 +38,7 @@ spec:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: {{ template "chart.image.full-name" . }}
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          commands:
+          command:
             - cloudflared
             - tunnel
             - --no-autoupdate
