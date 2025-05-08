@@ -1,7 +1,5 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "additionalProperties": true,
-    "description": "Cyb3r-Jak3's Cloudflared Helm chart",
     "properties": {
         "affinity": {
             "properties": {},
@@ -63,7 +61,10 @@
         "image": {
             "properties": {
                 "pullPolicy": {
-                    "type": "string"
+                    "description": "The image pull policy to use. Defaults to IfNotPresent",
+                    "type": [
+                        "string"
+                    ]
                 },
                 "registry": {
                     "type": [
@@ -71,7 +72,9 @@
                     ]
                 },
                 "repository": {
-                    "type": "string"
+                    "type": [
+                        "string"
+                    ]
                 },
                 "tag": {
                     "default": "",
@@ -112,7 +115,7 @@
                     ]
                 },
                 "port": {
-                    "default": 8080,
+                    "default": 2000,
                     "description": "Port to expose Prometheus metrics on",
                     "type": [
                         "integer"
