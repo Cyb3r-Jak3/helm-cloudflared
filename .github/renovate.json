@@ -1,0 +1,16 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": [
+        "github>Cyb3r-Jak3/renovate-configs//recommend-extended.json"
+    ],
+  "regexManagers": [
+    {
+      "fileMatch": ["charts/tunnel/Chart.yaml"],
+      "matchStrings": [
+        "appVersion:\\s*\"?(?<currentValue>\\d+\\.\\d+\\.\\d+)\"?"
+      ],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "cloudflare/cloudflared"
+    }
+  ]
+}
