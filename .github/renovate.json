@@ -15,5 +15,13 @@
       "datasourceTemplate": "github-releases",
       "depNameTemplate": "cloudflare/cloudflared"
     }
+  ],
+  "packageRules": [
+    {
+      "matchDepTypes": [
+        "helm_release"
+      ],
+      "pinDigests": false
+    }
   ]
 }
