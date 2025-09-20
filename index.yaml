@@ -2,6 +2,29 @@ apiVersion: v1
 entries:
   cloudflared:
   - apiVersion: v2
+    appVersion: 2025.9.0
+    created: "2025-09-20T19:41:38.367686848Z"
+    description: Cyb3r-Jak3's Cloudflared Helm chart
+    digest: 5f1797c53b6f69de571fd46a66c8b4664be87e077b481cd5690bc3ff2ee4e080
+    icon: https://public-files.cyberjake.xyz/cloudflare-zero-trust.svg
+    keywords:
+    - cloudflared
+    - cloudflare
+    - argo
+    - tunnel
+    maintainers:
+    - email: connect@cyberjake.xyz
+      name: Cyb3r-Jak3
+      url: https://cyberjake.xyz
+    name: cloudflared
+    sources:
+    - https://github.com/cloudflare/cloudflared
+    - https://github.com/Cyb3r-Jak3/helm-cloudflared
+    type: application
+    urls:
+    - https://github.com/Cyb3r-Jak3/helm-cloudflared/releases/download/cloudflared-0.3.11/cloudflared-0.3.11.tgz
+    version: 0.3.11
+  - apiVersion: v2
     appVersion: 2025.8.1
     created: "2025-08-24T18:33:23.663968227Z"
     description: Cyb3r-Jak3's Cloudflared Helm chart
@@ -388,4 +411,4 @@ entries:
     urls:
     - https://github.com/Cyb3r-Jak3/helm-cloudflared/releases/download/cloudflared-0.1.1/cloudflared-0.1.1.tgz
     version: 0.1.1
-generated: "2025-08-24T18:33:23.664076198Z"
+generated: "2025-09-20T19:41:38.367835656Z"
