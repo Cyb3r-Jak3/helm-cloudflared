@@ -1,0 +1,18 @@
+name: Clear Cache on PR Close
+on:
+  pull_request:
+    types: [ closed ]
+
+jobs:
+  clear-caches:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clear Page Deployments
+        uses: Cyb3r-Jak3/actions-cloudflare-utils@cb50a7ebdf658584982e5d470397058d815608d3 # v1.0.1
+        if: ${{ github.event.pull_request.merged == true }}
+        with:
+          args: prune-deployments --project helm-testing --branch ${{ github.event.pull_request.head.ref }} --extra-user-agent "pr-${{ github.event.pull_request.number }}|${{ github.run_id }}"
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_CACHE_CLEANER }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          LOG_LEVEL: DEBUG
