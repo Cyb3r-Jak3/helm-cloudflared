@@ -6,9 +6,9 @@ description: Cyb3r-Jak3's Cloudflared Helm chart
 
 type: application
 
-version: 0.3.15
+version: 0.3.16
 
-appVersion: "2025.11.0"
+appVersion: "2025.11.1"
 
 icon: https://public-files.cyberjake.xyz/cloudflare-zero-trust.svg
 
