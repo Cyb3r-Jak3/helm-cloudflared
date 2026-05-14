@@ -6,7 +6,7 @@ description: Cyb3r-Jak3's Cloudflared Helm chart
 
 type: application
 
-version: 0.3.17
+version: 0.3.18
 
 appVersion: "2026.5.0"
 
