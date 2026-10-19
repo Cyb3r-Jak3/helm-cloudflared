@@ -8,7 +8,7 @@ type: application
 
 version: 0.3.20
 
-appVersion: "2026.6.1"
+appVersion: "2026.10.1"
 
 icon: https://public-files.cyberjake.xyz/cloudflare-zero-trust.svg
 
