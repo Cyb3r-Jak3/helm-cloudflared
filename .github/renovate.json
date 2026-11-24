@@ -23,6 +23,20 @@
         "helm_values"
       ],
       "pinDigests": false
+    },
+    {
+      "matchDepNames": [
+        "cloudflare/cloudflared"
+      ],
+      "matchManagers": [
+        "custom.regex"
+      ],
+      "matchUpdateTypes": [
+        "major",
+        "minor",
+        "patch"
+      ],
+      "dependencyDashboardApproval": false
     }
   ]
 }
